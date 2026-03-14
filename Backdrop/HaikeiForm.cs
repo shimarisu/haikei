@@ -2,13 +2,13 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Backdrop
+namespace Haikei
 {
-    public partial class BackdropForm : Form
+    public partial class HaikeiForm : Form
     {
         private bool _showHelp = false;
 
-        public BackdropForm()
+        public HaikeiForm()
         {
             InitializeComponent();
 

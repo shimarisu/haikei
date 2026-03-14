@@ -1,7 +1,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace Backdrop
+namespace Haikei
 {
     static class Program
     {
@@ -13,7 +13,7 @@ namespace Backdrop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BackdropForm());
+            Application.Run(new HaikeiForm());
         }
     }
 }
