@@ -1,0 +1,7 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背面の黒い四角形 -->
+  <rect x="80" y="80" width="140" height="140" rx="35" ry="35" fill="#222222" />
+  
+  <!-- 前面の白い四角形（黒枠付き） -->
+  <rect x="36" y="36" width="140" height="140" rx="35" ry="35" fill="white" stroke="#222222" stroke-width="12" />
+</svg>

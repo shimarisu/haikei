@@ -20,7 +20,7 @@ echo コンパイル中...
 
 :: ソースコードのパスを指定してコンパイル (Releaseモード: 最適化有効 / デバッグ情報なし)
 :: リファレンスとして System.dll, System.Drawing.dll, System.Windows.Forms.dll を追加
-"%CSC_PATH%" /optimize+ /debug- /target:winexe /out:Backdrop.exe /r:System.dll,System.Drawing.dll,System.Windows.Forms.dll Backdrop\Program.cs Backdrop\BackdropForm.cs Backdrop\BackdropForm.Designer.cs
+"%CSC_PATH%" /optimize+ /debug- /target:winexe /out:Backdrop.exe /win32icon:Backdrop\Backdrop.ico /r:System.dll,System.Drawing.dll,System.Windows.Forms.dll Backdrop\Program.cs Backdrop\BackdropForm.cs Backdrop\BackdropForm.Designer.cs
 
 if %ERRORLEVEL% == 0 (
     echo.
