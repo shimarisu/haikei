@@ -2,6 +2,7 @@ using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using Microsoft.Win32;
 
 namespace Haikei
 {
@@ -19,8 +20,15 @@ namespace Haikei
             this.StartPosition = FormStartPosition.Manual;
             this.Bounds = Screen.PrimaryScreen.WorkingArea;
             
-            // 2. 背景色を白に設定
-            this.BackColor = Color.White;
+            // 2. 背景色を初期化 (System Themeを反映)
+            if (IsWindowsInDarkMode())
+            {
+                this.BackColor = Color.FromArgb(0x30, 0x30, 0x30);
+            }
+            else
+            {
+                this.BackColor = Color.White;
+            }
 
             // 3. キーイベントをフォームが受け取るように設定
             this.KeyPreview = true;
@@ -193,6 +201,26 @@ namespace Haikei
                 g.FillPath(brush, path);
                 g.DrawPath(pen, path);
             }
+        }
+
+        private bool IsWindowsInDarkMode()
+        {
+            try
+            {
+                using (var key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize"))
+                {
+                    if (key != null)
+                    {
+                        var val = key.GetValue("AppsUseLightTheme");
+                        if (val != null)
+                        {
+                            return (int)val == 0;
+                        }
+                    }
+                }
+            }
+            catch { }
+            return false;
         }
     }
 }
