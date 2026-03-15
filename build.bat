@@ -10,13 +10,13 @@ if not exist "%CSC_PATH%" (
 )
 
 if not exist "%CSC_PATH%" (
-    echo エラー: .NET Framework の csc.exe が見つかりません。
+    echo Error: .NET Framework の csc.exe が見つかりません。
     pause
     exit /b 1
 )
 
-echo コンパイラ: %CSC_PATH% を使用します。
-echo コンパイル中...
+echo Compilar: Use %CSC_PATH% .
+echo Compiling...
 
 :: ソースコードのパスを指定してコンパイル (Releaseモード: 最適化有効 / デバッグ情報なし)
 :: リファレンスとして System.dll, System.Drawing.dll, System.Windows.Forms.dll を追加
@@ -25,11 +25,11 @@ echo コンパイル中...
 if %ERRORLEVEL% == 0 (
     echo.
     echo ------------------------------------------
-    echo コンパイル成功！ haikei.exe が生成されました。
+    echo Compiled: Generated haikei.exe successfully.
     echo ------------------------------------------
 ) else (
     echo.
-    echo コンパイル失敗。
+    echo Compilation failed.
     pause
 )
 endlocal
