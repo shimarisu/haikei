@@ -13,8 +13,8 @@ namespace Haikei
             InitializeComponent();
 
             // 1. 全画面表示設定
-            this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.None;
+            this.StartPosition = FormStartPosition.Manual;
             
             // 2. 背景色を白に設定
             this.BackColor = Color.White;
@@ -34,6 +34,15 @@ namespace Haikei
                 this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             }
             catch { /* アイコン取得失敗時は何もしない */ }
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            
+            // タスクバーを隠さないようにWorkingAreaにサイズを合わせる
+            Rectangle area = Screen.GetWorkingArea(this);
+            this.SetBounds(area.X, area.Y, area.Width, area.Height);
         }
 
         private void Form_KeyDown(object sender, KeyEventArgs e)
