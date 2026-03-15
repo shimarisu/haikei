@@ -13,9 +13,11 @@ namespace Haikei
         {
             InitializeComponent();
 
-            // 1. 全画面表示設定
+            // 1. 全画面表示設定 (タスクバーを隠さないようにWorkingAreaに合わせる)
             this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Normal;
             this.StartPosition = FormStartPosition.Manual;
+            this.Bounds = Screen.PrimaryScreen.WorkingArea;
             
             // 2. 背景色を白に設定
             this.BackColor = Color.White;
@@ -48,10 +50,16 @@ namespace Haikei
 
         private void Form_KeyDown(object sender, KeyEventArgs e)
         {
-            // ESCキーが押されたら終了
-            if (e.KeyCode == Keys.Escape)
+            // ESCキーまたはQキーが押されたら終了
+            if (e.KeyCode == Keys.Escape || e.KeyCode == Keys.Q)
             {
                 this.Close();
+            }
+            // Hキーでヘルプの表示切り替え
+            else if (e.KeyCode == Keys.H)
+            {
+                _showHelp = !_showHelp;
+                this.Invalidate();
             }
             // スペースキーで背景色切り替え
             else if (e.KeyCode == Keys.Space)
