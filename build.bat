@@ -5,17 +5,17 @@ setlocal
 set CSC_PATH=%WINDIR%\Microsoft.NET\Framework64\v4.0.30319\csc.exe
 
 if not exist "%CSC_PATH%" (
-    echo 64bit版のcsc.exeが見つかりません。32bit版を探します...
+    echo The 64-bit version of csc.exe could not be found. Searching for the 32-bit version...
     set CSC_PATH=%WINDIR%\Microsoft.NET\Framework\v4.0.30319\csc.exe
 )
 
 if not exist "%CSC_PATH%" (
-    echo Error: .NET Framework の csc.exe が見つかりません。
+    echo Error: The 32-bit version of csc.exe could not be found.
     pause
     exit /b 1
 )
 
-echo Compilar: Use %CSC_PATH% .
+echo Compiler: Use %CSC_PATH% .
 echo Compiling...
 
 :: ソースコードのパスを指定してコンパイル (Releaseモード: 最適化有効 / デバッグ情報なし)
