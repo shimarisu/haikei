@@ -12,9 +12,11 @@ namespace Haikei
         {
             InitializeComponent();
 
-            // 1. 全画面表示設定
-            this.WindowState = FormWindowState.Maximized;
+            // 1. 全画面表示設定 (タスクバーを隠さないようにWorkingAreaに合わせる)
             this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Normal;
+            this.StartPosition = FormStartPosition.Manual;
+            this.Bounds = Screen.PrimaryScreen.WorkingArea;
             
             // 2. 背景色を白に設定
             this.BackColor = Color.White;
