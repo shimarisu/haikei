@@ -1,6 +1,7 @@
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Text;
 using System.Windows.Forms;
 using Microsoft.Win32;
 
@@ -97,8 +98,10 @@ namespace Haikei
         {
             if (_showHelp)
             {
-                // テキストの描画品質を向上（クリアタイプ）
+                // ClearType は描画先によって色付きの縁が出ることがあるため、
+                // グレースケールのアンチエイリアスで文字を滑らかに描画する。
                 e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                e.Graphics.TextRenderingHint = TextRenderingHint.AntiAliasGridFit;
 
                 // 背景色の輝度から文字色を決定
                 bool isBright = (this.BackColor.R * 0.299 + this.BackColor.G * 0.587 + this.BackColor.B * 0.114) > 128;
