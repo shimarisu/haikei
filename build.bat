@@ -20,7 +20,7 @@ echo Compiling...
 
 :: ソースコードのパスを指定してコンパイル (Releaseモード: 最適化有効 / デバッグ情報なし)
 :: リファレンスとして System.dll, System.Drawing.dll, System.Windows.Forms.dll を追加
-"%CSC_PATH%" /optimize+ /debug- /target:winexe /out:haikei.exe /win32icon:haikei\Haikei.ico /r:System.dll,System.Drawing.dll,System.Windows.Forms.dll haikei\Program.cs haikei\HaikeiForm.cs haikei\HaikeiForm.Designer.cs
+"%CSC_PATH%" /optimize+ /debug- /target:winexe /out:haikei.exe /win32icon:haikei\Haikei.ico /win32manifest:haikei\app.manifest /r:System.dll,System.Drawing.dll,System.Windows.Forms.dll haikei\Program.cs haikei\HaikeiForm.cs haikei\HaikeiForm.Designer.cs
 
 if %ERRORLEVEL% == 0 (
     echo.
